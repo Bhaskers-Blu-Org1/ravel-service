@@ -1,0 +1,791 @@
+{
+"message": {
+		"utterance": "@watson i will buy it from you",
+		"sender": {
+			"memberId": 1001,
+			"name": "Maria",
+			"roles": [
+				"user",
+				"person"
+			]
+		},
+		"room": "1001",
+		"intents-rpi": ["confirm_buy"],
+		"conversation_state_id": "sNormOn",
+		"conversation_last_transition_id": null
+
+	},
+"conversation": {
+    "activeNormDescriptors": [
+      {
+        "id": "permission_to_user",
+        "roles": [
+          "user"
+        ],
+        "type": "permission"
+      }
+    ],
+    "active_clocks": [],
+    "clocks": [],
+    "current_state_id": "sNormOn",
+    "current_turn_id": 0,
+    "desc": "RPI Governance",
+    "id": "rpi",
+    "isValid": true,
+    "last_sender": null,
+    "last_transition": null,
+    "members": [
+      {
+        "isAllowed": true,
+        "isDenied": false,
+        "isRequired": false,
+        "memberId": 1001,
+        "name": "Maria",
+        "roles": [
+          "user",
+          "person"
+        ]
+      },
+      {
+        "isAllowed": true,
+        "isDenied": false,
+        "isRequired": false,
+        "memberId": 1002,
+        "name": "Watson",
+        "roles": [
+          "bot"
+        ]
+      },
+      {
+        "isAllowed": true,
+        "isDenied": false,
+        "isRequired": false,
+        "memberId": 1003,
+        "name": "Celia",
+        "roles": [
+          "bot"
+        ]
+      },
+      {
+        "isAllowed": true,
+        "isDenied": false,
+        "isRequired": false,
+        "memberId": 1000,
+        "name": "RPI Hub",
+        "roles": [
+          "hub"
+        ]
+      }
+    ],
+    "messages": [
+
+      {
+        "id": "msg_from_user_with_mention",
+        "name_mention": true,
+        "sender_roles": [
+          "user"
+        ]
+      },
+			{
+				"classifiers": [
+					{
+						"classes": [
+							"confirm_buy"
+						],
+						"id": "intents-rpi"
+					}
+				],
+				"id": "msg_from_user_confirm_sale",
+				"name_mention": true,
+				"sender_roles": [
+					"user"
+				]
+			},
+      {
+        "id": "msg_from_hub_with_mention",
+        "name_mention": true,
+        "sender_roles": [
+          "hub"
+        ]
+      },
+      {
+        "classifiers": [
+          {
+            "classes": [
+              "greeting"
+            ],
+            "id": "intents-rpi"
+          }
+        ],
+        "id": "msg_to_greet",
+        "name_mention": false,
+        "sender_roles": [
+          "user"
+        ]
+      },
+      {
+        "classifiers": [
+          {
+            "classes": [
+              "priceenquiry"
+            ],
+            "id": "intents-rpi"
+          }
+        ],
+        "id": "msg_to_PriceEnquiry",
+        "name_mention": false,
+        "sender_roles": [
+          "user"
+        ]
+      },
+      {
+        "classifiers": [
+          {
+            "classes": [
+              "give_the_fruits"
+            ],
+            "id": "intents-rpi"
+          }
+        ],
+        "id": "msg_to_give_the_fruits",
+        "name_mention": false,
+        "sender_roles": [
+          "bot"
+        ]
+      },
+      {
+        "classifiers": [
+          {
+            "classes": [
+              "agentresponse_compete"
+            ],
+            "id": "intents-rpi"
+          }
+        ],
+        "id": "msg_to_agentResponse_compete",
+        "name_mention": false,
+        "sender_roles": [
+          "bot"
+        ]
+      },
+      {
+        "classifiers": [
+          {
+            "classes": [
+              "agentresponse_price"
+            ],
+            "id": "intents-rpi"
+          }
+        ],
+        "id": "msg_to_agentResponse_price",
+        "name_mention": false,
+        "sender_roles": [
+          "bot"
+        ]
+      },
+      {
+        "classifiers": [
+          {
+            "classes": [
+              "confirm_buy"
+            ],
+            "id": "intents-rpi"
+          }
+        ],
+        "id": "msg_to_confirm_buy",
+        "name_mention": false,
+        "sender_roles": [
+          "user"
+        ]
+      },
+      {
+        "classifiers": [
+          {
+            "classes": [
+              "not_to_buy"
+            ],
+            "id": "intents-rpi"
+          }
+        ],
+        "id": "msg_to_decide_not_to_buy",
+        "name_mention": false,
+        "sender_roles": [
+          "user"
+        ]
+      },
+      {
+        "classifiers": [
+          {
+            "classes": [
+              "undefined"
+            ],
+            "id": "intents-rpi"
+          }
+        ],
+        "id": "msg_undefined",
+        "sender_roles": [
+          "user"
+        ]
+      }
+    ],
+    "norms": [
+      {
+        "id": "permission_to_user",
+        "roles": [
+          "user"
+        ],
+        "type": "permission"
+      },
+      {
+        "id": "permission_to_hub",
+        "roles": [
+          "hub"
+        ],
+        "type": "permission"
+      },
+      {
+        "applies_to": [
+          "$sender"
+        ],
+        "id": "prohibition_to_sender_bot",
+        "roles": [
+          "bot"
+        ],
+        "type": "prohibition"
+      },
+      {
+        "id": "prohibition_to_all_others",
+        "not_applies_to": [
+          "$sender",
+          "$receiver"
+        ],
+        "roles": [
+          "bot"
+        ],
+        "type": "prohibition"
+      },
+      {
+        "applies_to": [
+          "$receiver"
+        ],
+        "id": "obligation_to_receiver",
+        "type": "obligation"
+      },
+      {
+        "applies_to": [
+          "$last_sender"
+        ],
+        "id": "obligation_to_last_sender",
+        "roles": [
+          "bot"
+        ],
+        "type": "obligation"
+      },
+      {
+        "id": "prohibition_to_all_others_except_last_sender",
+        "not_applies_to": [
+          "$last_sender"
+        ],
+        "roles": [
+          "bot"
+        ],
+        "type": "prohibition"
+      },
+      {
+        "id": "prohibition_to_all_bots",
+        "roles": [
+          "bot"
+        ],
+        "type": "prohibition"
+      },
+      {
+        "id": "obligation_to_all_bots",
+        "roles": [
+          "bot"
+        ],
+        "type": "obligation"
+      },
+      {
+        "id": "prohibition_case_turn_replied",
+        "roles": [
+          "bot"
+        ],
+        "turnReplied": true,
+        "type": "prohibition"
+      }
+    ],
+    "protocol": {
+      "states": [
+        {
+          "desc": "Norms Off",
+          "final": false,
+          "id": "sNormOff",
+          "initial": false
+        },
+        {
+          "desc": "Norms On",
+          "final": false,
+          "id": "sNormOn",
+          "initial": true,
+          "norms": [
+            {
+              "event": "norm activation",
+              "id": "permission_to_user"
+            }
+          ]
+        }
+      ],
+      "transitions": [
+        {
+          "from": "sNormOn",
+          "id": "t0",
+          "messages": [
+            "msg_from_user_with_mention"
+          ],
+          "norms": [
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_sender_bot"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "obligation_to_last_sender"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_all_others_except_last_sender"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_all_bots"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "obligation_to_all_bots"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_case_turn_replied"
+            },
+            {
+              "event": "norm activation",
+              "id": "permission_to_user"
+            },
+            {
+              "event": "norm activation",
+              "id": "permission_to_hub"
+            },
+            {
+              "event": "norm activation",
+              "id": "obligation_to_receiver"
+            },
+            {
+              "event": "norm activation",
+              "id": "prohibition_to_all_others"
+            }
+          ],
+          "to": "sNormOn"
+        },
+        {
+          "from": "sNormOn",
+          "id": "t1",
+          "messages": [
+            "msg_to_PriceEnquiry"
+          ],
+          "norms": [
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_all_others"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "obligation_to_receiver"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "obligation_to_last_sender"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_all_others_except_last_sender"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_all_bots"
+            },
+            {
+              "event": "norm activation",
+              "id": "obligation_to_all_bots"
+            },
+            {
+              "event": "norm activation",
+              "id": "prohibition_case_turn_replied"
+            },
+            {
+              "event": "norm activation",
+              "id": "permission_to_user"
+            },
+            {
+              "event": "norm activation",
+              "id": "permission_to_hub"
+            },
+            {
+              "event": "norm activation",
+              "id": "prohibition_to_sender_bot"
+            }
+          ],
+          "to": "sNormOn"
+        },
+        {
+          "from": "sNormOn",
+          "id": "t2",
+          "messages": [
+            "msg_to_agentResponse_price"
+          ],
+          "norms": [
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_case_turn_replied"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_all_others"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "obligation_to_receiver"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "obligation_to_last_sender"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_all_others_except_last_sender"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_all_bots"
+            },
+            {
+              "event": "norm activation",
+              "id": "obligation_to_all_bots"
+            },
+            {
+              "event": "norm activation",
+              "id": "permission_to_user"
+            },
+            {
+              "event": "norm activation",
+              "id": "permission_to_hub"
+            },
+            {
+              "event": "norm activation",
+              "id": "prohibition_to_sender_bot"
+            }
+          ],
+          "to": "sNormOn"
+        },
+        {
+          "from": "sNormOn",
+          "id": "t3",
+          "messages": [
+            "msg_to_agentResponse_compete"
+          ],
+          "norms": [
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_all_others"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "obligation_to_receiver"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "obligation_to_last_sender"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_all_others_except_last_sender"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "obligation_to_all_bots"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_case_turn_replied"
+            },
+            {
+              "event": "norm activation",
+              "id": "permission_to_user"
+            },
+            {
+              "event": "norm activation",
+              "id": "permission_to_hub"
+            },
+            {
+              "event": "norm activation",
+              "id": "prohibition_to_sender_bot"
+            },
+            {
+              "event": "norm activation",
+              "id": "prohibition_to_all_bots"
+            }
+          ],
+          "to": "sNormOn"
+        },
+        {
+          "from": "sNormOn",
+          "id": "t4",
+          "messages": [
+            "msg_to_confirm_buy"
+          ],
+          "norms": [
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_all_others"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "obligation_to_receiver"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_all_bots"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "obligation_to_all_bots"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_case_turn_replied"
+            },
+            {
+              "event": "norm activation",
+              "id": "permission_to_user"
+            },
+            {
+              "event": "norm activation",
+              "id": "permission_to_hub"
+            },
+            {
+              "event": "norm activation",
+              "id": "obligation_to_last_sender"
+            },
+            {
+              "event": "norm activation",
+              "id": "prohibition_to_all_others_except_last_sender"
+            },
+            {
+              "event": "norm activation",
+              "id": "prohibition_to_sender_bot"
+            }
+          ],
+          "to": "sNormOn"
+        },
+        {
+          "from": "sNormOn",
+          "id": "t5",
+          "messages": [
+            "msg_from_hub_with_mention"
+          ],
+          "norms": [
+            {
+              "event": "norm deactivation",
+              "id": "permission_to_hub"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "obligation_to_last_sender"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_all_others_except_last_sender"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_all_bots"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "obligation_to_all_bots"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_case_turn_replied"
+            },
+            {
+              "event": "norm activation",
+              "id": "permission_to_user"
+            },
+            {
+              "event": "norm activation",
+              "id": "prohibition_to_all_others"
+            },
+            {
+              "event": "norm activation",
+              "id": "obligation_to_receiver"
+            },
+            {
+              "event": "norm activation",
+              "id": "prohibition_to_sender_bot"
+            }
+          ],
+          "to": "sNormOn"
+        },
+        {
+          "from": "sNormOn",
+          "id": "t6",
+          "messages": [
+            "msg_from_user_confirm_sale"
+          ],
+          "norms": [
+            {
+              "event": "norm deactivation",
+              "id": "permission_to_hub"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "obligation_to_last_sender"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_all_others_except_last_sender"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_to_all_bots"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "obligation_to_all_bots"
+            },
+            {
+              "event": "norm deactivation",
+              "id": "prohibition_case_turn_replied"
+            },
+            {
+              "event": "norm activation",
+              "id": "permission_to_user"
+            },
+            {
+              "event": "norm activation",
+              "id": "prohibition_to_all_others"
+            },
+            {
+              "event": "norm activation",
+              "id": "obligation_to_receiver"
+            },
+            {
+              "event": "norm activation",
+              "id": "prohibition_to_sender_bot"
+            }
+          ],
+          "to": "sNormOn"
+        }
+      ]
+    },
+    "receivers": [],
+    "roles": [
+      {
+        "desc": "RPI hub",
+        "id": "hub"
+      },
+      {
+        "desc": "A bot that chats with a person",
+        "id": "bot"
+      },
+      {
+        "desc": "Take user of the conversation",
+        "id": "user"
+      }
+    ],
+    "room_id": 1001,
+    "sender": null,
+    "turns": {
+      "0": {
+        "active_norms": [
+          {
+            "id": "permission_to_user",
+            "roles": [
+              "user"
+            ],
+            "type": "permission"
+          }
+        ],
+        "id": 0,
+        "last_sender": null,
+        "receivers": [],
+        "reply_to_turn_id": null,
+        "sender": null
+      }
+    },
+    "utterance_classifiers": [
+      {
+        "classes": [
+          {
+            "desc": "any message like hi, hello, etc",
+            "id": "greeting"
+          },
+          {
+            "desc": "",
+            "id": "PriceEnquiry"
+          },
+          {
+            "desc": "",
+            "id": "PriceEnquiry"
+          },
+          {
+            "desc": "",
+            "id": "agentResponse_price"
+          },
+          {
+            "desc": "",
+            "id": "agentResponse_compete"
+          },
+          {
+            "desc": "",
+            "id": "confirm_buy"
+          },
+          {
+            "desc": "",
+            "id": "give_the_fruits"
+          },
+          {
+            "desc": "",
+            "id": "not_to_buy"
+          },
+          {
+            "desc": "",
+            "id": "agree"
+          },
+          {
+            "desc": "",
+            "id": "failure"
+          },
+          {
+            "desc": "",
+            "id": "not_understood"
+          },
+          {
+            "desc": "",
+            "id": "bye"
+          },
+          {
+            "desc": "",
+            "id": "undefined"
+          }
+        ],
+        "desc": "intents-rpi",
+        "id": "intents-rpi",
+        "password": "4ByNyaK_4y-gV8RJoHxjidfsyx3t-cCUn88WnDVrVJvG",
+        "type": "nlc",
+        "url": "https://gateway.watsonplatform.net/assistant/api/v1/workspaces/79c6880b-a113-4b32-b3b2-5182be8c7999/message",
+        "username": "auto-generated-apikey-70bcdc1b-e718-4c4e-9fe5-4601c9b025b5"
+      }
+    ]
+  }
+}

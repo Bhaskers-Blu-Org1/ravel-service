@@ -1,0 +1,16 @@
+{
+  "name": "ravel-gov",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.ibm.com/brl-sda/ravel-hub"
+  },
+  "dependencies": {
+    "encoding": "*",
+    "ravel-gov-action": "git+https://8c5b4b42288ff23e8ab43de60a7d8e8640cc73d0:x-oauth-basic@github.ibm.com/brl-sda/ravel-governance-actions.git#dev"
+  },
+  "engines": {
+    "node": "7.x"
+  },
+  "private": true
+}
